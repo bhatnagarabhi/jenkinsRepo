@@ -1,5 +1,3 @@
-def buildnum = "${currentBuild.number}"
-
 pipeline {
     agent {
         node {
@@ -7,22 +5,11 @@ pipeline {
             customWorkspace '/home/jenkins/workspace'
         }
     }
-
     stages {
-
-        stage ('Stage 01') {
-            steps {
-                echo "${buildnum}"
-            }
-        }
-
-
-        stage('Stage 02') {
-
-            steps {
-                echo "Step 2"
+        stage("Check changeLog") {
+            when {
+                changelog ".*build*"
             }
         }
     }
-
 }
