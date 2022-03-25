@@ -1,0 +1,28 @@
+def buildnum = "${currentBuild.number}"
+
+pipeline {
+    agent {
+        node {
+            label 'slave'
+            customWorkspace '/home/jenkins/workspace'
+        }
+    }
+
+    stages {
+
+        stage ('Stage 01') {
+            steps {
+                echo "${buildnum}"
+            }
+        }
+
+
+        stage('Stage 02') {
+
+            steps {
+                echo "Step 2"
+            }
+        }
+    }
+
+}
