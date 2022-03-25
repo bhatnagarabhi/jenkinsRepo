@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage("Build using fileName") {
             when {
-                changeset glob: "*.md"
+                changeset pattern: "*.md"
             }
             steps {
                 echo "This will be built only when the regex matches the files in a repo"
