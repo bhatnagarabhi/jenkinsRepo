@@ -7,9 +7,12 @@ pipeline {
     }
     stages {
         stage("Check changeLog") {
-            when {
-                changelog ".*build*"
+            steps {
+                when {
+                    changelog ".*build*"
+                }
             }
+            
         }
     }
 }
