@@ -1,18 +1,19 @@
 pipeline {
     agent {
         node {
-            label "slave"
+            label 'slave'
             customWorkspace '/home/jenkins/workspace'
         }
     }
     stages {
-        stage("Build using fileName") {
+        stage("Check changeLog") {
             when {
-                changeset glob: "*.md"
+                changelog ".*build*"
             }
             steps {
-                echo "This will be built only when the regex matches the files in a repo"
+               echo "Building using changelog"
             }
+            
         }
     }
 }
