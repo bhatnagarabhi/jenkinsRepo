@@ -1,4 +1,7 @@
 pipeline {
+    options {
+        timestamps()
+    }
     agent {
         node {
             label 'slave'
