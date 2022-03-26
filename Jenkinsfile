@@ -1,23 +1,37 @@
 pipeline {
-    agent none
-    options {
-        quietPeriod(5)
+    agent {
+        node {
+            label 'slave'
+            customWorkspace '/home/jenkins/workspace'
+        }
     }
-    environment {
-        def BUILDENV = "production"
-    }
-
     stages {
-        stage("Stage 01") {
-            agent {
-                label 'slave'
-            }
-            when {
-                beforeAgent true
-                environment name: "BUILDENV", value: "dev"      // This will be evaluated before selecting the node to run on
-            }
-            steps {
-                echo "This is stage 01"
+        stage("Running multiple stages in parallel") {
+            failFast true
+            parallel {
+                
+                stage("Stage #1") {
+                    steps {
+                        echo "Running Stage #1"
+                        sleep(10)
+                    }
+                    
+                }
+                
+                stage("Stage #2") {
+                    steps {
+                        echo "Runnning Stage #2"
+                        sleep(10)
+                    }
+                }
+
+                stage("Stage #3") {
+                    steps {
+                        echo "Runnning Stage #3"
+                        sleep(10)
+                    }
+                }
+                
             }
         }
     }
