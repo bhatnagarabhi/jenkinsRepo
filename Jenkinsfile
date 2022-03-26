@@ -10,7 +10,7 @@ pipeline {
                 label 'slave'
             }
             when {
-                beforeAgent false
+                beforeAgent true
                 environment name: "BUILDENV", value: "dev"
             }
             steps {
