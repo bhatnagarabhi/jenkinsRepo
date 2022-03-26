@@ -1,7 +1,7 @@
 pipeline {
     agent none
     environment {
-        def BUILDENV = "dev"
+        def BUILDENV = "production"
     }
 
     stages {
