@@ -21,7 +21,8 @@ pipeline {
                 stage("Stage #2") {
                     steps {
                         echo "Runnning Stage #2"
-                        sleep(10)
+                        sleep(2)
+                        error "Simulating an error on step 2"
                     }
                 }
 
@@ -31,7 +32,7 @@ pipeline {
                         sleep(10)
                     }
                 }
-                
+
             }
         }
     }
