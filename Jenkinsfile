@@ -1,7 +1,7 @@
 pipeline {
     agent none
     options {
-        
+        quietPeriod(5)
     }
     environment {
         def BUILDENV = "production"
