@@ -1,5 +1,8 @@
 pipeline {
     agent none
+    options {
+        
+    }
     environment {
         def BUILDENV = "production"
     }
