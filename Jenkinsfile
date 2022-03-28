@@ -10,7 +10,7 @@ pipeline {
     }
     stages {
         stage("Running multiple stages in parallel") {
-            failFast true
+            failFast false
             parallel {
                 
                 stage("Stage #1") {
