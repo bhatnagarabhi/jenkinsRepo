@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'slave'
+            label 'runner'
             customWorkspace '/home/jenkins/workspace'
         }
     }
@@ -16,6 +16,7 @@ pipeline {
         def buildVersion = ''
         def credentials = ''
         def undergoneTesting = false    
+        def artifactoryToken = "cmG2bFI28HWwrcxd7b2plwQlwO6avfkyF"
     }
 
     stages {
