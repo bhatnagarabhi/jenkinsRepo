@@ -40,7 +40,7 @@ pipeline {
                 script {
                     if("${undergoneTesting}") {
                         ansiColor('vga') {
-                            echo '\033[42m\033[97m*CHECK* This build has gone extensive tesing\033[0m'
+                            echo '\033[42m\033[97m*CHECK* This build has gone extensive tesing!\033[0m'
                         }
                     } else {
                         echo "*WARNING* This build still needs to be tested thoroughly"
