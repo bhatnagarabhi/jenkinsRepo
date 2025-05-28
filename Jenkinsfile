@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'slave'
+            label 'runner'
             customWorkspace '/home/jenkins/workspace'
         }
     }
@@ -15,7 +15,7 @@ pipeline {
         def buildDescription = ''
         def buildVersion = ''
         def credentials = ''
-        def undergoneTesting = false    
+        def undergoneTesting = false
     }
 
     stages {
@@ -39,11 +39,9 @@ pipeline {
                 echo "Build revision: ${buildVersion}"
                 script {
                     if("${undergoneTesting}") {
-                        ansiColor('vga') {
-                            echo '\033[42m\033[97m*CHECK* This build has gone extensive tesing\033[0m'
-                        }
+                            echo 'This build has been tested.'
                     } else {
-                        echo "*WARNING* This build still needs to be tested thoroughly"
+                        echo "This build still needs to be tested."
                     }
                 }
                
